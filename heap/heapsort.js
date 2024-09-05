@@ -14,7 +14,7 @@ function heapSort(arr) {
 
 // Build a max heap from the array
 function buildMaxHeap(arr) {
-    for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+    for (let i = Math.floor(arr.length- 1 / 2) ; i >= 0; i--) {
         heapifyMax(arr, i, arr.length);
     }
 }

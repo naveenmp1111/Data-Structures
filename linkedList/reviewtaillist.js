@@ -59,6 +59,7 @@ class LinkedList{
         }
         return
     }
+    
     removeFromFront(){
         if(!this.head){
             return null
@@ -67,6 +68,7 @@ class LinkedList{
         }
         return
     }
+
     removeFromEnd(){
         if(!this.head){
             return null

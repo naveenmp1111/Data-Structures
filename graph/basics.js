@@ -42,8 +42,7 @@ class Graph{
 
     bfs(startvertex){
         let visited={}
-        let queue=[]
-        
+        let queue=[]  
         visited[startvertex]=true
         queue.push(startvertex)
         while(queue.length > 0){ 
@@ -69,7 +68,6 @@ class Graph{
                 }
         })
         }
-
         dfsrecursive(startvertex)
     }
 

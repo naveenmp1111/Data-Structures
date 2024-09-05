@@ -7,5 +7,5 @@ function linearSearch(n){
     }return -1
 }
 
-console.log('Index is :')
+console.log('Index is : ')
 console.log(linearSearch(44))

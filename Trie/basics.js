@@ -33,8 +33,8 @@ class Trie {
         }
 
         return node.isEndOfWord;
-    }
-
+    }                                                                                                                                                                                                                                                           
+    
     startsWith(prefix) {
         let node = this.root;
 
@@ -44,7 +44,6 @@ class Trie {
             }
             node = node.children[char];
         }
-
         return true;
     }
 
@@ -67,7 +66,6 @@ class Trie {
             if (Object.keys(node.children).length === 0) {
                 node = null;
             }
-
             return node;
         }
 
@@ -78,8 +76,36 @@ class Trie {
         if (Object.keys(node.children).length === 0 && !node.isEndOfWord) {
             node = null;
         }
-
         return node;
+    }       
+
+    findAllWordWithPrefix(prefix){
+        let words=[]
+        let node=this.searchPrefix(prefix)
+        if(node){
+            this.collectAllWords(node,prefix,words)
+        }
+        return words
+    }
+
+    searchPrefix(prefix){
+        let node=this.root
+        for(let char of prefix){
+            if(!node.children[char]){
+                return null
+            }
+            node=node.children[char]
+        }
+        return node
+    }
+
+    collectAllWords(node,prefix,words){
+        if(node.isEndOfWord){
+            words.push(prefix)
+        }
+        for(let char in node.children){
+            this.collectAllWords(node.children[char],prefix+char,words)
+        }
     }
 }
 
@@ -87,6 +113,9 @@ class Trie {
 let trie = new Trie();
 
 trie.insert("apple");
+trie.insert('anime')
+trie.insert('app')
 console.log(trie.search("apple"));   // Output: true
 trie.delete("apple");
-console.log(trie.search("apple"));   // Output: false
+// console.log(trie.search("apple"));   // Output: false
+console.log(trie.findAllWordWithPrefix('a'))

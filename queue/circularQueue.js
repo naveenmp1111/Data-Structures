@@ -19,7 +19,7 @@ class circularQueue {
         if (!this.isFull()) {
             this.rear = (this.rear + 1) % this.capacity
             this.items[this.rear] = element
-            this.size +=1
+            this.size += 1
             if (this.front == -1) {
                 this.front = this.rear
             }
@@ -36,7 +36,7 @@ class circularQueue {
             this.rear = -1
             this.front = -1
         }
-        this.size -=1
+        this.size -= 1
     }
 
     peek() {
@@ -47,20 +47,21 @@ class circularQueue {
     }
 
     print() {
-    if (this.isEmpty()) {
-        console.log('empty');
-    } else {
-        let i
-        let str = '';
-        for ( i = this.front; (i + 1) % this.capacity !== (this.rear + 1) % this.capacity; i = (i + 1) % this.capacity) {
-            str += this.items[i] + ' ';
+        if (this.isEmpty()) {
+            console.log('empty');
+        } else {
+            console.log(this.rear,this.front)
+            let i
+            let str = '';
+            for (i = this.front; i % this.capacity !== this.rear % this.capacity; i = (i + 1) % this.capacity) {
+                str += this.items[i] + ' ';
+            }
+            str += this.items[i]
+            console.log(str);
         }
-        str += this.items[i]
-        console.log(str);
     }
-}
 
-    
+
 }
 
 const queue = new circularQueue(5)
