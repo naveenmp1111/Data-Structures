@@ -106,7 +106,7 @@ class binarySearchTree {
         queue.push(this.root)
         const result = []
         let leftToRight = true
-        while (queue.length) {
+        while (queue.length) { 
             const limit = queue.length
             const currentLevel = []
             for (let i = 0; i < limit; i++) {
